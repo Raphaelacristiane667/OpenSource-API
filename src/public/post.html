@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post - OpenSource</title>
+  <link rel="stylesheet" href="EstiloPost.css" />
+  <script>
+    let curtidas = 102;
+    let comentarios = 3;
+
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+
+    function abrirPost(titulo, autor, data, comentarios, likes) {
+      const postData = { titulo, autor, data, comentarios, likes };
+      localStorage.setItem('postSelecionado', JSON.stringify(postData));
+      window.location.href = 'post.html';
+    }
+
+    function abrirModalLogoff() {
+  document.getElementById('modalLogoff').classList.remove('hidden');
+}
+
+function fecharModalLogoff() {
+  document.getElementById('modalLogoff').classList.add('hidden');
+}
+
+function confirmarLogoff() {
+  // Redireciona para logout ou realiza outra ação
+  window.location.href = 'index.html'; // ou 'login.html'
+}
+
+    // Simulação de carregamento do post
+    const postData = JSON.parse(localStorage.getItem('postSelecionado'));
+    if (postData) {
+      document.getElementById('tituloPost').textContent = postData.titulo;
+      document.getElementById('autorPost').textContent = postData.autor;
+      document.getElementById('dataPost').textContent = postData.data;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Cabeçalho fixo -->
+  <header>
+    <a href="home.html"><div class="logo">opensource</div></a>
+    <div class="user-info">
+      <span>Usuário_0#</span>
+      <img src="https://img.icons8.com/ios-filled/30/user-male-circle.png" alt="Avatar">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="comentarios.html">Comentários</a>
+    <a href="painel_autor.html">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal-sair hidden">
+  <div class="modal-content-sair">
+    <span class="fechar-sair" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal-sair">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+  
+  <!-- Conteúdo do post -->
+  <main class="main-content">
+    <section class="post-detalhe">
+      <h1 id="tituloPost">Título do Post</h1>
+      <p><strong>Autor:</strong> <span id="autorPost">Autor_0#</span></p>
+      <p><strong>Publicado em:</strong> <span id="dataPost">1 de jun. de 2025</span></p>
+
+      <div class="post-corpo" id="corpoPost">
+        <p>
+          Em um mundo cada vez mais conectado e orientado por dados, a inteligência artificial (IA) tem desempenhado um papel fundamental na forma como interagimos com a tecnologia. A recente parceria entre nossa comunidade open source e o Google AI promete abrir novas portas para projetos colaborativos e soluções inovadoras.
+        </p>
+        <p>
+          A proposta é unir esforços para tornar as ferramentas de IA mais acessíveis, transparentes e éticas. Com isso, desenvolvedores independentes poderão contribuir diretamente com melhorias em algoritmos, modelos de linguagem, detecção de padrões e muito mais.
+        </p>
+        <p>
+          Essa integração também trará benefícios imediatos para os usuários da plataforma, como recomendações personalizadas, moderação inteligente de comentários e até sugestões de código baseadas no comportamento da comunidade.
+        </p>
+      </div>
+
+      <div class="interacoes-post">
+        <button onclick="curtirPost()">❤️ Curtir</button>
+        <button onclick="salvarPost()">💾 Salvar</button>
+        <span id="totalCurtidas">102 curtidas</span>
+        <span id="totalComentarios">3 comentários</span>
+      </div>
+
+      <div class="comentarios">
+        <h3>Comentários</h3>
+      
+        <div class="comentario">
+          <strong>
+            <img src="https://img.icons8.com/ios-filled/20/user-male-circle.png" alt="avatar" style="vertical-align: middle; margin-right: 5px;">
+            membro_1#
+          </strong>
+          Muito interessante esse tema! Gostei da parceria com o Google.
+          <br><small>1 de jun. de 2025</small>
+        </div>
+      
+        <div class="comentario">
+          <strong>
+            <img src="https://img.icons8.com/ios-filled/20/user-male-circle.png" alt="avatar" style="vertical-align: middle; margin-right: 5px;">
+            dev_girl_22
+          </strong>
+          IA realmente está mudando tudo. Excelente post!
+          <br><small>2 de jun. de 2025</small>
+        </div>
+      
+        <div class="comentario">
+          <strong>
+            <img src="https://img.icons8.com/ios-filled/20/user-male-circle.png" alt="avatar" style="vertical-align: middle; margin-right: 5px;">
+            code_hunter
+          </strong>
+          Faltou falar um pouco mais sobre a integração com o TensorFlow.
+          <br><small>3 de jun. de 2025</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+
+</body>
+</html>

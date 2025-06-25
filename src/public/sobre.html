@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre - OpenSource</title>
+  <link rel="stylesheet" href="EstiloSobre.css" />
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+
+    function abrirPost(titulo, autor, data, comentarios, likes) {
+      const postData = { titulo, autor, data, comentarios, likes };
+      localStorage.setItem('postSelecionado', JSON.stringify(postData));
+      window.location.href = 'post.html';
+    }
+
+    function abrirModalLogoff() {
+  document.getElementById('modalLogoff').classList.remove('hidden');
+}
+
+function fecharModalLogoff() {
+  document.getElementById('modalLogoff').classList.add('hidden');
+}
+
+function confirmarLogoff() {
+  // Redireciona para logout ou realiza outra ação
+  window.location.href = 'index.html'; // ou 'login.html'
+}
+  </script>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <a href="home.html"><div class="logo">opensource</div></a>
+    <div class="user-info">
+      <span>Usuário_0#</span>
+      <img src="https://img.icons8.com/ios-filled/30/user-male-circle.png" alt="Avatar">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html">Home</a>
+    <a href="sobre.html" class="active">Sobre</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="comentarios.html">Comentários</a>
+    <a href="painel_autor.html">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal-sair hidden">
+  <div class="modal-content-sair">
+    <span class="fechar-sair" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal-sair">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <div class="container-sobre">
+      <h2>
+        <img src="https://img.icons8.com/ios-filled/50/compass.png" alt="Missão">
+        Missão
+      </h2>
+      <p>
+        Compartilhar conhecimento acessível sobre tecnologia, programação e design, conectando estudantes e entusiastas de forma colaborativa.
+      </p>
+    </div>
+
+    <div class="container-sobre">
+      <h2>
+        <img src="https://img.icons8.com/ios-filled/50/visible.png" alt="Visão">
+        Visão
+      </h2>
+      <p>
+        Ser referência acadêmica e prática na produção de conteúdo digital relevante para novos desenvolvedores.
+      </p>
+    </div>
+
+    <div class="container-sobre">
+      <h2>
+        <img src="https://img.icons8.com/ios-filled/50/conference-call.png" alt="Grupo">
+        Sobre o Grupo Criador
+      </h2>
+      <p>
+        Este blog foi desenvolvido por um grupo de alunos como parte de um projeto da faculdade. Nosso foco foi criar um sistema funcional com design intuitivo. <br><br> Integrantes: <p>--Alfredo <br>--Raphaela <br>--Esther <br>--Giovane <br>--Henzo <br>--Matheus</p>
+      </p>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+
+</body>
+</html>

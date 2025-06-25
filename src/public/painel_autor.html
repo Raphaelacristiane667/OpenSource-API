@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel do Autor</title>
+  <link rel="stylesheet" href="EstiloAuto.css">
+  <script defer src="painel_autor.js"></script>
+</head>
+<body>
+    <!-- Cabeçalho fixo -->
+    <header>
+      <a href="home.html"><div class="logo">opensource</div></a>
+      <div class="user-info">
+        <span>Usuário_0#</span>
+        <img src="https://img.icons8.com/ios-filled/30/user-male-circle.png" alt="Avatar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      </div>
+    </header>
+
+  <!-- Menu lateral -->
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="comentarios.html">Comentários</a>
+    <a href="painel_autor.html" class="active">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal-sair hidden">
+  <div class="modal-content-sair">
+    <span class="fechar-sair" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal-sair">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+  <div class="painel-container">
+    <!-- Modal de Novo Post -->
+    <div id="modalNovoPost" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Novo Post</h3>
+           <button class="close-btn" onclick="fecharModal()">✖</button>
+          </div>
+          <input type="text" id="tituloPost" placeholder="Título do Post...">
+      
+          <label class="label-conteudo"><span class="menu-icon">☰</span> Conteúdo:</label>
+          <textarea id="conteudoPost" rows="6"></textarea>
+      
+          <div class="botoes-modal">
+            <button onclick="publicarPost()">Publicar</button>
+          </div>
+        </div>
+    </div>
+  
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="modalConfirmarExclusao" class="modal hidden">
+      <div class="modal-content_p">
+        <p>Tem certeza que deseja <strong>excluir</strong> este post?</p>
+        <div class="botoes-modal">
+            <button onclick="confirmarExclusao()">Sim!</button>
+            <button onclick="fecharModalExclusao()">Cancelar</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Post -->
+    <div id="modalEditarPost" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Editar Post</h4>
+                <button class="close-btn" onclick="fecharModalEditar()">✖</button>
+            </div>
+          <input type="text" id="tituloEditar" placeholder="Título do Post..." />
+          <label for="conteudoEditar" style="display:block; margin-top:10px;">
+           <strong>☰ Conteúdo:</strong>
+          </label>
+        <textarea id="conteudoEditar" rows="6"></textarea>
+          <div class="botoes-modal">
+            <button onclick="publicarPostEditado()">Publicar</button>
+          </div>
+        </div>
+    </div>
+  
+
+    <div class="painel-header">
+      <h2>Seus Posts</h2>
+      <button class="btn-novo" onclick="novoPost()">➕</button>
+    </div>
+
+    <div id="lista-posts">
+      <!-- Conteúdo gerado via JavaScript -->
+    </div>
+
+    <div class="paginacao">
+      <span>Página 1 de 1</span>
+      <button class="btn-paginacao">Anterior</button>
+      <span>[1]</span>
+      <button class="btn-paginacao">Próxima</button>
+    </div>
+  </div>
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+</body>
+</html>

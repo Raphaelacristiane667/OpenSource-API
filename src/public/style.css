@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .side-image {
+    flex: 1;
+    background: url('https://cdn.pixabay.com/photo/2018/01/17/07/15/analytics-3088958_960_720.jpg') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .login-box {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    background-color: #009999;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    margin-bottom: 1rem;
+    font-family: 'Arial Black', sans-serif;
+  }
+  
+  .avatar img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #009999;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .login-form button {
+    background-color: #009999;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-form button:hover {
+    background-color: #007777;
+  }
+  
+  .register-text {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .register-text a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .login-note {
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: green;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .register-title {
+    font-size: 1.5rem;
+    color: #00aa55;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  

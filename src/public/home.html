@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - OpenSource</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
+
+    function abrirPost(titulo, autor, data, comentarios, likes) {
+      const postData = { titulo, autor, data, comentarios, likes };
+      localStorage.setItem('postSelecionado', JSON.stringify(postData));
+      window.location.href = 'post.html';
+    }
+
+    function abrirModalLogoff() {
+  document.getElementById('modalLogoff').classList.remove('hidden');
+}
+
+function fecharModalLogoff() {
+  document.getElementById('modalLogoff').classList.add('hidden');
+}
+
+function confirmarLogoff() {
+  // Redireciona para logout ou realiza outra ação
+  window.location.href = 'index.html'; // ou 'login.html'
+}
+
+  </script>
+</head>
+<body>
+  <!-- Cabeçalho fixo -->
+  <header class="header">
+    <div class="logo">opensource</div>
+    <div class="user-info">
+      <span>Usuário_0#</span>
+      <img src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="Avatar">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Menu lateral -->
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html" class="active">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="comentarios.html">Comentários</a>
+    <a href="painel_autor.html">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal hidden">
+  <div class="modal-content">
+    <span class="fechar" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <section class="post-card" onclick="abrirPost('Exciting Community News: We\'re Partnering with Google AI!', 'Autor_0#', '1 de jun.', '83 comentários', '102 Likes')">
+      <div class="post-header">
+        <img src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="Autor">
+        <span>Autor_0#</span>
+        <span class="post-date">1 de jun.</span>
+      </div>
+      <div>
+        <h2 class="post-title">Exciting Community News: We're Partnering with Google AI!</h2>
+        <div class="interactions">
+          <span>💬 83 comentários</span> | <span>102 Likes</span> ❤️
+        </div>
+      </div>
+    </section>
+    
+    <section class="post-card" onclick="abrirPost('IE6,IA e o futuro da navegação na Web', 'Autor_0#', '29 de mai.', '25 comentários', '12 curtidas')">
+      <div class="post-header">
+        <img src="https://img.icons8.com/ios-filled/50/user-male-circle.png" alt="Autor">
+        <span>Autor_0#</span>
+        <span class="post-date">29 de mai.</span>
+      </div>
+      <h2 class="post-title">IE6,IA e o futuro da navegação na Web</h2>
+      <div class="tags"><span>#ai</span> <span>#web</span> <span>#browsers</span></div>
+      <div class="interactions"><span>💬 25 comentários</span> | <span>12 curtidas</span> ❤️</div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Favoritos</title>
+  <link rel="stylesheet" href="EstiloFav.css">
+</head>
+<body>
+ <!-- Cabeçalho fixo -->
+ <header>
+  <a href="home.html"><div class="logo">opensource</div></a>
+  <div class="user-info">
+    <span>Usuário_0#</span>
+    <img src="https://img.icons8.com/ios-filled/30/user-male-circle.png" alt="Avatar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+  <!-- Menu sanduíche lateral -->
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="favoritos.html" class="active">Favoritos</a>
+    <a href="comentarios.html">Comentários</a>
+    <a href="painel_autor.html">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal-sair hidden">
+  <div class="modal-content-sair">
+    <span class="fechar-sair" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal-sair">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <div class="titulo-favoritos"><h2 class="post-title">
+      <span class="icon">🔖</span>
+      <span>Veja aqui os posts que você salvou para ler depois.</span></h2>
+    </div>
+
+    <div id="favoritos-container"></div>
+  </main>
+
+  <!-- Modal de confirmação -->
+  <div id="modal-confirmacao" class="modal">
+    <div class="modal-box">
+      <p>Certeza que deseja remover<br>o Post dos seus favoritos?</p>
+      <div class="botoes-modal">
+        <button class="btn-sim" onclick="confirmarRemocao()">Sim!</button>
+        <button class="btn-cancelar" onclick="cancelarRemocao()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+
+  <script src="favoritos.js"></script>
+</body>
+</html>

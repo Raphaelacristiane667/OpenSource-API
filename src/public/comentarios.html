@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meus Comentários</title>
+  <link rel="stylesheet" href="EstiloCom.css">
+  <script defer src="comentarios.js"></script>
+</head>
+<body>
+  <!-- Cabeçalho fixo -->
+  <header>
+    <a href="home.html"><div class="logo">opensource</div></a>
+    <div class="user-info">
+      <span>Usuário_0#</span>
+      <img src="https://img.icons8.com/ios-filled/30/user-male-circle.png" alt="Avatar">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <nav id="sideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="comentarios.html" class="active">Comentários</a>
+    <a href="painel_autor.html">Painel do Autor</a>
+    <a href="#" onclick="abrirModalLogoff()">
+      <i class="fa fa-sign-out-alt"></i> Sair
+    </a>
+  </nav>
+
+  <!-- Modal de Logoff -->
+<div id="modalLogoff" class="modal-sair hidden">
+  <div class="modal-content-sair">
+    <span class="fechar-sair" onclick="fecharModalLogoff()">&#10005;</span>
+    <h4>Deseja realmente sair da sua conta?</h4>
+    <div class="botoes-modal-sair">
+      <button class="btn-sair" onclick="confirmarLogoff()">Sim</button>
+      <button class="btn-sair" onclick="fecharModalLogoff()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <main class="main-content">
+    <h2><span class="icone">💬</span> Veja todos os comentários que você já fez nos posts.</h2>
+
+    <div id="lista-comentarios">
+      <!-- Os comentários serão inseridos aqui via JS -->
+    </div>
+  </main>
+
+  <!-- Modal de confirmação -->
+  <div id="modal-comentario" class="modal">
+    <div class="modal-box">
+      <p>Certeza que deseja remover o<br>comentário permanentemente?</p>
+      <div class="botoes-modal">
+        <button class="btn-sim" onclick="confirmarExclusao()">Sim!</button>
+        <button class="btn-cancelar" onclick="cancelarExclusao()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <!-- Rodapé -->
+  <footer>
+    <a href="home.html">Home</a>
+    <a href="sobre.html">Sobre</a>
+  </footer>
+</body>
+</html>

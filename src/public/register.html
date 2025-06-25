@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - OpenSource</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const form = document.querySelector('.register-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = form.querySelector('input[type="text"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const password = form.querySelector('input[type="password"]').value;
+
+      try {
+        const response = await fetch('http://localhost:3000/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('Cadastro realizado com sucesso!');
+          window.location.href = 'index.html'; // redireciona para o login
+        } else {
+          alert(data.message || 'Erro no cadastro.');
+        }
+      } catch (err) {
+        alert('Erro ao conectar ao servidor.');
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="side-image left"></div>
+
+    <div class="login-box">
+      <h1 class="logo">OPENSOURCE</h1>
+
+      <div class="avatar">
+        <img src="Img/711769.png" alt="Avatar">
+      </div>
+
+      <h2 class="register-title">✴ Criar uma conta nova</h2>
+
+      <form class="login-form">
+        <input type="text" placeholder="Nome..." required>
+        <input type="email" placeholder="Email..." required>
+        <input type="password" placeholder="Senha..." required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+
+    <div class="side-image right"></div>
+  </div>
+</body>
+</html>
